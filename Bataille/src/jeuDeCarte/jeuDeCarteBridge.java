@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import Carte.CarteBridge;
-import paquetDeCarte.PaquetDeCarte;
 import paquetDeCarte.PaquetDeCarteBridge;
 
 /**
@@ -24,7 +23,13 @@ public class jeuDeCarteBridge extends JeuDeCarte<CarteBridge> {
 	}
 	
 	@Override
-	protected PaquetDeCarte<CarteBridge> creerJeu() {
+	public PaquetDeCarteBridge distribuer(int nb) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected PaquetDeCarteBridge creerJeu() {
 		return this.creerJeu(54);
 	}
 

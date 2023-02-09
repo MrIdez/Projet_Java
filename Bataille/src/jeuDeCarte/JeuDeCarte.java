@@ -25,7 +25,8 @@ public abstract class JeuDeCarte<C> {
 	public PaquetDeCarte<C> getJeu() {
 		return jeu;
 	}
-
+	
+	public abstract PaquetDeCarte<C> distribuer(int nb);
 	protected abstract PaquetDeCarte<C> creerJeu();
 	protected abstract PaquetDeCarte<C> creerJeu(int nbcarte);
 	/**
