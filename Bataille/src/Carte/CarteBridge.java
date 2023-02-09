@@ -10,8 +10,8 @@ public class CarteBridge extends Carte {
 	}
 
 	@Override
-	public void afficher() {
-		System.out.println(this.getValeur() + "de" + this.getFigure());
+	public String toString() {
+		return (this.getValeur() + "de" + this.getFigure());
 	}
 
 }

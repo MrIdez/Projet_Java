@@ -12,9 +12,6 @@ public abstract class Carte {
 	private String figure;
 	private String Couleur;
 	
-	
-	public abstract void afficher();
-	
 	public Carte(int val, String fig,String coul) {
 		this.setCouleur(coul);
 		this.setFigure(fig);
