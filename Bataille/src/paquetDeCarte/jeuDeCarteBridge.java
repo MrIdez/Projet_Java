@@ -1,40 +1,32 @@
 /**
  * 
  */
-package jeuDeCarte;
+package paquetDeCarte;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 import Carte.CarteBridge;
-import paquetDeCarte.PaquetDeCarteBridge;
 
 /**
  * @author guillaume
  *
  */
-public class jeuDeCarteBridge extends JeuDeCarte<CarteBridge> {	
+public class jeuDeCarteBridge extends PaquetDeCarteBridge {	
 	public jeuDeCarteBridge() {
-		super();
+		super(creerJeu());
 	}
 	
 	public jeuDeCarteBridge(int nbcarte) {
-		super(nbcarte);
+		super(creerJeu(32));
 	}
 	
-	@Override
-	public PaquetDeCarteBridge distribuer(int nb) {
-		// TODO Auto-generated method stub
-		return null;
+
+	public static ArrayList<CarteBridge> creerJeu() {
+		return creerJeu(54);
 	}
 
-	@Override
-	protected PaquetDeCarteBridge creerJeu() {
-		return this.creerJeu(54);
-	}
-
-	@Override
-	protected PaquetDeCarteBridge creerJeu(int nbcarte) {
+	private static ArrayList<CarteBridge> creerJeu(int nbcarte) {
 		final int min ;
 		if (nbcarte == 32) {
 			min = 7;
@@ -42,7 +34,6 @@ public class jeuDeCarteBridge extends JeuDeCarte<CarteBridge> {
 		else {
 			min = 1;
 		}
-		PaquetDeCarteBridge paquet ;
 		ArrayList<CarteBridge> jeu = new ArrayList<CarteBridge>();
 		CarteBridge uneCarte;
 		String[] couleur = {"Tréfle","Pique","Carreaux","Coeur"};
@@ -53,7 +44,6 @@ public class jeuDeCarteBridge extends JeuDeCarte<CarteBridge> {
 			}
 		}
 		Collections.shuffle(jeu);
-		paquet = new PaquetDeCarteBridge(jeu);
-		return paquet;
+		return jeu;
 	}
 }

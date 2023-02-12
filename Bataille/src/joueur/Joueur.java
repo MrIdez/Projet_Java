@@ -1,6 +1,6 @@
 package joueur;
 
-import java.util.Queue;
+import paquetDeCarte.PaquetDeCarte;
 
 /**
  *
@@ -14,7 +14,7 @@ public abstract class Joueur<C> {
 	/** Variable d'instance */
 	private String nomJoueur;
 	private int nb_carte;
-	private Queue<C> pioche;
+	private PaquetDeCarte<C> pioche;
 
 	public Joueur(String nomJ) {
 		this.nomJoueur = nomJ;
@@ -24,7 +24,7 @@ public abstract class Joueur<C> {
 	public abstract void afficher();
 
 	public void AjouterCarte(C carte) {
-		this.pioche.add(carte);
+		this.pioche.ajouterCarte(carte);
 		this.nb_carte++;
 	}
 
@@ -45,7 +45,7 @@ public abstract class Joueur<C> {
 	/**
 	 * @return La pioche du joueur
 	 */
-	public Queue<C> getPioche() {
+	public PaquetDeCarte<C> getPioche() {
 		return pioche;
 	}
 }
