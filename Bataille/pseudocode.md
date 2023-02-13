@@ -92,6 +92,14 @@ def égalité(JA,JB,jeu) :
 * égalité
 * coupBataille
 * meilleurCarte -> revoit la meilleur carte jouer entre les deux dernière dans carteEnJeu
+* Une méthode pour ça aussi : ```python 
+if cA2.GetValeur()>cB2.GetValeur() :
+				JA.Ramasser(jeu)
+			elif cA2.GetValeur()<cB2.GetValeur() :
+				JB.Ramasser(jeu)
+			else : 
+				JB.Ramasser(jeu) 
+                ``` 
 
 # liste des variables :
 * Joueur1

@@ -18,6 +18,7 @@ public abstract class PaquetDeCarte<C> {
 
 	public PaquetDeCarte(ArrayList<C> p) {
 		this.setNbcarte(p.size());
+		this.paquet = new ArrayList<>();
 		for (C carte : p) {
 			this.paquet.add(carte);
 		}
@@ -49,18 +50,20 @@ public abstract class PaquetDeCarte<C> {
 		return paquet;
 	}
 
-	public void Ramasser(PaquetDeCarte<C> paquet) {
+	public void ramasser(PaquetDeCarte<C> paquet) {
 		this.paquet.addAll(paquet.getPaquet());
+		this.setNbcarte(this.paquet.size());
 	}
 	
-	public void Ramasser(ArrayList<C> paquet) {
+	public void ramasser(ArrayList<C> paquet) {
 		this.paquet.addAll(paquet);
+		this.setNbcarte(this.paquet.size());
 	}
 	
 	public C tirerCarte() {
 		C c = null;
 		if (this.nbcarte > 0) {
-			c = this.paquet.remove(nbcarte);
+			c = this.paquet.remove(nbcarte-1);
 		}
 		this.nbcarte--;
 		return c;

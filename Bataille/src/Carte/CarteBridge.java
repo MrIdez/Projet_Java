@@ -11,7 +11,7 @@ public class CarteBridge extends Carte {
 
 	@Override
 	public String toString() {
-		return (this.getValeur() + "de" + this.getFigure());
+		return (this.getFigure() + " de " + this.getCouleur());
 	}
 
 }

@@ -1,5 +1,7 @@
 package joueur;
 
+import java.util.ArrayList;
+
 import paquetDeCarte.PaquetDeCarte;
 
 /**
@@ -13,8 +15,8 @@ public abstract class Joueur<C> {
 
 	/** Variable d'instance */
 	private String nomJoueur;
+	protected PaquetDeCarte<C> pioche;
 	private int nb_carte;
-	private PaquetDeCarte<C> pioche;
 
 	public Joueur(String nomJ) {
 		this.nomJoueur = nomJ;
@@ -47,5 +49,16 @@ public abstract class Joueur<C> {
 	 */
 	public PaquetDeCarte<C> getPioche() {
 		return pioche;
+	}
+
+	public abstract void rammasser(ArrayList<C> paquet);
+
+	public abstract void rammasser(PaquetDeCarte<C> paquet);
+
+	/**
+	 * @param nb_carte the nb_carte to set
+	 */
+	protected void setNb_carte(int nb_carte) {
+		this.nb_carte = nb_carte;
 	}
 }
