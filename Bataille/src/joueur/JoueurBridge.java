@@ -21,6 +21,10 @@ public class JoueurBridge extends Joueur<CarteBridge> {
 		this.pioche = new PaquetDeCarteBridge();
 	}
 
+	public CarteBridge tirerCarte() {
+		return this.pioche.tirerCarte();
+	}
+	
 	@Override
 	public void afficher() {
 		int nbcarte = this.getNb_carte();

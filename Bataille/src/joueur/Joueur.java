@@ -50,7 +50,7 @@ public abstract class Joueur<C> {
 	public PaquetDeCarte<C> getPioche() {
 		return pioche;
 	}
-
+ 	
 	public abstract void rammasser(ArrayList<C> paquet);
 
 	public abstract void rammasser(PaquetDeCarte<C> paquet);
