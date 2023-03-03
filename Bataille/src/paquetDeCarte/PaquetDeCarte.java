@@ -8,6 +8,8 @@ import java.util.Collections;
  */
 
 /**
+ * 
+ * Implemente un paquet de carte, la paquet est implenter sous forme de pile
  * @author guillaume
  *
  */

@@ -5,6 +5,7 @@ package jeux;
 
 import java.util.HashMap;
 
+import Carte.CarteBridge;
 import joueur.JoueurBridge;
 import paquetDeCarte.PaquetDeCarteBridge;
 import paquetDeCarte.jeuDeCarteBridge;
@@ -23,21 +24,26 @@ public class Bataille {
 	private static final jeuDeCarteBridge jeu = new jeuDeCarteBridge(32);
 
 	public static void main(String[] args) {
-		Bataille bat = new Bataille("test", "test");
+		JoueurBridge j = new JoueurBridge("test");
+		j.rammasser(jeu);
+		j.afficher();
+//		Bataille bat = new Bataille("test", "test");
 	}
 
 	private PaquetDeCarteBridge carteEnJeu;
-	/**
-	 * Le joueur vainqueur
-	 */
 	private JoueurBridge vainqueur;
 	private JoueurBridge j1;
 
 	private JoueurBridge j2;
 	private int nbcoup;
 	private jeuDeCarteBridge pioche;
-	private HashMap<Integer, PaquetDeCarteBridge> coups;
+	private HashMap<Integer, PaquetDeCarteBridge> coupsMap;
 
+	/**
+	 * Permet d'initier une table de Jeu pour la bataille
+	 * @param nomj1 le nom du joueur 1
+	 * @param nomj2 le nom du joueur 2
+	 */
 	public Bataille(String nomj1, String nomj2) {
 		this.setJ1(new JoueurBridge(nomj1));
 		this.setJ2(new JoueurBridge(nomj2));
@@ -48,8 +54,11 @@ public class Bataille {
 		this.nouvellePartie();
 	}
 
-	public boolean estTerm() {
-		return (j2.getNb_carte() != 0 && j1.getNb_carte() != 0);
+	/**
+	 * @return the coupsMap
+	 */
+	public HashMap<Integer, PaquetDeCarteBridge> getCoupsMap() {
+		return coupsMap;
 	}
 
 	/**
@@ -73,6 +82,7 @@ public class Bataille {
 		while (estTerm() == false) {
 			this.tirerCarteJoueurs();
 			this.incrementeCoup();
+			this.coupBataille();
 		}
 		if (j1.getNb_carte() == 0) {
 			vainqueur = j1;
@@ -90,17 +100,46 @@ public class Bataille {
 		setNbcoup(0);
 		this.j1.rammasser(pioche.distribuer(16));
 		this.j2.rammasser(pioche.distribuer(16));
-		coups = new HashMap<>();
+		coupsMap = new HashMap<>();
+	}
+
+	private void coupBataille() {
+		gagnantCoup();
+	}
+
+	/**
+	 * Renvoie le gagnant du dernier coup
+	 * 1 : J1
+	 * 2 : J2
+	 * 0 : égalité
+	 */
+	private int gagnantCoup() {
+		CarteBridge c1,c2; // c1 = carte du j1, c2 carte du j2
+		c2 = carteEnJeu.tirerCarte();
+		c1 = carteEnJeu.tirerCarte();
+		if (c1.getValeur() > c2.getValeur()) {
+			return 1;
+		}
+		else if (c1.getValeur() < c2.getValeur()) {
+			return 2;
+		}
+		else {
+			return 0;
+		}
 	}
 
 	/**
 	 * Permet de tirer une carte à chaque joueur et de le mettre dans carteEnJeu
 	 */
-	public void tirerCarteJoueurs() {
+	private void tirerCarteJoueurs() {
 		carteEnJeu.ajouterCarte(j1.tirerCarte());
 		carteEnJeu.ajouterCarte(j2.tirerCarte());
 	}
-
+	
+	private boolean estTerm() {
+		return (j2.getNb_carte() != 0 && j1.getNb_carte() != 0);
+	}
+	
 	/**
 	 * Permet d'incrementer le nb de coup
 	 */
@@ -149,5 +188,4 @@ public class Bataille {
 	private void setVainqueur(JoueurBridge vainqueur) {
 		this.vainqueur = vainqueur;
 	}
-
 }

@@ -2,32 +2,46 @@ package joueur;
 
 import java.util.ArrayList;
 
-import Carte.CarteBridge;
 import paquetDeCarte.PaquetDeCarte;
 
 /**
- *
+ * Fichier pour la classe Joueur
  */
 
 /**
- * @author guillaume
+ * Classe abstraite d'un Joueur de carte C
+ * Elle permet ensuite de définir la Classe JoueurBridge
+ * 
+ * @author Guillaume Baron
  */
 public abstract class Joueur<C> {
 
 	/** Variable d'instance */
 	private String nomJoueur;
 	protected PaquetDeCarte<C> pioche;
+
 	private int nb_carte;
 
+	/**
+	 * 
+	 * @param nomJ le nom du joueur
+	 */
 	public Joueur(String nomJ) {
 		this.nomJoueur = nomJ;
 		this.nb_carte = 0;
 	}
-
+	
+	/**
+	 * Permet d'afficher le Joueur
+	 */
 	public void afficher() {
 		System.out.println(this.toString());
 	}
 
+	/**
+	 * 
+	 * @param carte la carte à ajouter
+	 */
 	public void AjouterCarte(C carte) {
 		this.pioche.ajouterCarte(carte);
 		this.nb_carte++;
@@ -53,16 +67,42 @@ public abstract class Joueur<C> {
 	public PaquetDeCarte<C> getPioche() {
 		return pioche;
 	}
- 	
-	public abstract void rammasser(ArrayList<C> paquet);
-
-	public abstract void rammasser(PaquetDeCarte<C> paquet);
 
 	/**
+	 * 
+	 * @param paquet l'ArrayList de C à rammasser
+	 */
+	public abstract void rammasser(ArrayList<C> paquet);
+
+	/**
+	 * @param paquet le paquet de carte à rammasser
+	 */
+	public abstract void rammasser(PaquetDeCarte<C> paquet);
+ 	
+	/**
+	 * Permet de changer le nombre de carte du joueur
 	 * @param nb_carte the nb_carte to set
 	 */
 	protected void setNb_carte(int nb_carte) {
 		this.nb_carte = nb_carte;
+	}
+
+	/**
+	 * Permet de définir un nouveau nom pour le joueur
+	 * @param nomJoueur le nouveau nom
+	 */
+	public void setNomJoueur(String nomJoueur) {
+		this.nomJoueur = nomJoueur;
+	}
+
+	/**
+	 * Permet de définir une nouvelle pioche pour le joueur
+	 * Le nombre de carte est mis à jour avec la taille de cette nouvelle pioche
+	 * @param pioche la nouvelle pioche
+	 */
+	public void setPioche(PaquetDeCarte<C> pioche) {
+		setNb_carte(pioche.getNbcarte());
+		this.pioche = pioche;
 	}
 	
 	@Override
