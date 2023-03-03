@@ -13,6 +13,8 @@ import Carte.CarteBridge;
  *
  */
 public class jeuDeCarteBridge extends PaquetDeCarteBridge {	
+	private final static String[] couleur = {"Tréfle","Pique","Carreaux","Coeur"};
+	
 	public jeuDeCarteBridge() {
 		super(creerJeu());
 	}
@@ -36,7 +38,6 @@ public class jeuDeCarteBridge extends PaquetDeCarteBridge {
 		}
 		ArrayList<CarteBridge> jeu = new ArrayList<CarteBridge>();
 		CarteBridge uneCarte;
-		String[] couleur = {"Tréfle","Pique","Carreaux","Coeur"};
 		for (String coul : couleur) {
 			for (int i = min; i < 15; i++) {
 				uneCarte = new CarteBridge(i, coul);

@@ -25,18 +25,6 @@ public class JoueurBridge extends Joueur<CarteBridge> {
 		return this.pioche.tirerCarte();
 	}
 	
-	@Override
-	public void afficher() {
-		int nbcarte = this.getNb_carte();
-		System.out.println("Nom du Joueur :" + this.getNomJoueur());
-		System.out.println("Nombre de carte : " + nbcarte);
-		if (nbcarte > 0) {
-			System.out.println("Pioche :");
-			for (CarteBridge carte : this.getPioche().getPaquet()) {
-				System.out.println(carte.toString());
-			}
-		}
-	}
 
 	@Override
 	public void rammasser(ArrayList<CarteBridge> paquet) {

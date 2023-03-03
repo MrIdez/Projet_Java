@@ -9,9 +9,5 @@ public class CarteBridge extends Carte {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return (this.getFigure() + " de " + this.getCouleur());
-	}
 
 }

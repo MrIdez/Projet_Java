@@ -18,6 +18,10 @@ public abstract class Carte {
 		this.setValeur(val);
 	}
 	
+	public void afficher() {
+		System.out.println(this.toString());
+	}
+	
 	/**
 	 * @return the valeur
 	 */
@@ -57,6 +61,11 @@ public abstract class Carte {
 		Couleur = couleur;
 	}
 
+	@Override
+	public String toString() {
+		return (this.getFigure() + " de " + this.getCouleur());
+	}
+	
 }
 
 

@@ -21,13 +21,7 @@ public class PaquetDeCarteBridge extends PaquetDeCarte<CarteBridge> {
 		super();
 	}
 
-	@Override
-	public void afficher() {
-		System.out.println("Paquet de Carte :");
-		for (CarteBridge carte : this.getPaquet()) {
-			System.out.println(carte.toString());
-		}
-	}
+
 
 	@Override
 	public PaquetDeCarte<CarteBridge> distribuer(int nb) {

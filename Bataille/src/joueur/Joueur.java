@@ -2,6 +2,7 @@ package joueur;
 
 import java.util.ArrayList;
 
+import Carte.CarteBridge;
 import paquetDeCarte.PaquetDeCarte;
 
 /**
@@ -23,7 +24,9 @@ public abstract class Joueur<C> {
 		this.nb_carte = 0;
 	}
 
-	public abstract void afficher();
+	public void afficher() {
+		System.out.println(this.toString());
+	}
 
 	public void AjouterCarte(C carte) {
 		this.pioche.ajouterCarte(carte);
@@ -60,5 +63,18 @@ public abstract class Joueur<C> {
 	 */
 	protected void setNb_carte(int nb_carte) {
 		this.nb_carte = nb_carte;
+	}
+	
+	@Override
+	public String toString() {
+		int nbcarte = this.getNb_carte();
+		String str = "Nom du Joueur : " + this.getNomJoueur() + "\nNombre de carte : " + nbcarte;
+		if (nbcarte > 0) {
+			str = str.concat("\nPioche : \n");
+			for (C carte : this.getPioche().getPaquet()) {
+				str = str.concat(carte.toString()+"\n");
+			}
+		}
+		return str;
 	}
 }

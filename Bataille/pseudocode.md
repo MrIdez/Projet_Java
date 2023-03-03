@@ -87,6 +87,7 @@ def égalité(JA,JB,jeu) :
 ```
 
 # liste des méthodes :
+* Nouvelle partie
 * Jeu
 * tirerCarteJoueur
 * égalité
@@ -107,3 +108,9 @@ if cA2.GetValeur()>cB2.GetValeur() :
 * (jouerQuiaGagné) pour que ce soit plus rp
 * Pioche -> le jeu de carte complet
 * carteEnJeu : Paquet de carte
+* jeu static et constatante -> le jeu
+
+# Methode de classe
+* Jouer x partie
+* Aide
+* Les regles
