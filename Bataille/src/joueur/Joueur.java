@@ -48,6 +48,16 @@ public abstract class Joueur<C> {
 	}
 
 	/**
+	 * 
+	 * @return 
+	 * Vrai si un joueur n'as plus de carte 
+	 * <br>
+	 * Faux sinon
+	 */
+	public boolean plusDeCarte() {
+		return (this.getNb_carte() == 0);
+	}
+	/**
 	 * @return Le nb_carte du Joueur
 	 */
 	public int getNb_carte() {
