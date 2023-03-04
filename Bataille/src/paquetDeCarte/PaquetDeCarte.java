@@ -55,7 +55,7 @@ public abstract class PaquetDeCarte<C> {
 	public ArrayList<C> getPaquet() {
 		return paquet;
 	}
-
+	
 	public void melanger() {
 		Collections.shuffle(paquet);
 	}

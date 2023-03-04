@@ -55,7 +55,7 @@ public abstract class Joueur<C> {
 	 * Faux sinon
 	 */
 	public boolean plusDeCarte() {
-		return (this.getNb_carte() == 0);
+		return (this.getNb_carte() < 1);
 	}
 	/**
 	 * @return Le nb_carte du Joueur

@@ -21,7 +21,12 @@ public class PaquetDeCarteBridge extends PaquetDeCarte<CarteBridge> {
 		super();
 	}
 
-
+	public CarteBridge getCarte(int index) throws IndexOutOfBoundsException {
+		if ((index < 0 || index >= this.getNbcarte())) {
+			throw new IndexOutOfBoundsException();
+		}
+		else return this.paquet.get(index);
+	}
 
 	@Override
 	public PaquetDeCarte<CarteBridge> distribuer(int nb) {

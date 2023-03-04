@@ -22,6 +22,7 @@ public class JoueurBridge extends Joueur<CarteBridge> {
 	}
 
 	public CarteBridge tirerCarte() {
+		this.setNb_carte(this.getNb_carte()-1);
 		return this.pioche.tirerCarte();
 	}
 	
@@ -35,9 +36,8 @@ public class JoueurBridge extends Joueur<CarteBridge> {
 
 	@Override
 	public void rammasser(PaquetDeCarte<CarteBridge> paquet) {
-		this.pioche.melanger();
+		paquet.melanger();
 		this.pioche.ramasser(paquet);
-		System.out.println(this.pioche.getNbcarte());
 		this.setNb_carte(this.pioche.getNbcarte());
 	}
 

@@ -3,6 +3,7 @@
  */
 package jeux;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import Carte.CarteBridge;
@@ -24,7 +25,10 @@ public class Bataille {
 	private static final jeuDeCarteBridge jeu = new jeuDeCarteBridge(32);
 
 	public static void main(String[] args) {
-		Bataille bat = new Bataille("test", "test");
+		Bataille bat = new Bataille("j1", "j2");
+		bat.jouerPartie();
+		System.out.println(bat.getVainqueur());
+		System.out.println(bat.getNbcoup());
 	}
 
 	private PaquetDeCarteBridge carteEnJeu; // la paquet de carte en jeu
@@ -44,9 +48,6 @@ public class Bataille {
 		this.setJ1(new JoueurBridge(nomj1));
 		this.setJ2(new JoueurBridge(nomj2));
 		this.setVainqueur(new JoueurBridge("Vainqueur"));
-		j1.afficher();
-		j2.afficher();
-		carteEnJeu.afficher();
 		this.nouvellePartie();
 	}
 
@@ -79,11 +80,12 @@ public class Bataille {
 			this.tirerCarteJoueurs();
 			this.incrementeCoup();
 			this.coupBataille();
+			this.setCarteEnJeu(new PaquetDeCarteBridge());
 		}
 		if (j1.plusDeCarte()) {
-			setVainqueur(j1);
-		} else {
 			setVainqueur(j2);
+		} else {
+			setVainqueur(j1);
 		}
 	}
 
@@ -162,8 +164,8 @@ public class Bataille {
 	 */
 	private int gagnantCoup() {
 		CarteBridge c1,c2; // c1 = carte du j1, c2 carte du j2
-		c2 = carteEnJeu.tirerCarte();
-		c1 = carteEnJeu.tirerCarte();
+		c2 = carteEnJeu.getCarte(carteEnJeu.getNbcarte()-1);
+		c1 = carteEnJeu.getCarte(carteEnJeu.getNbcarte()-2);
 		if (c1.getValeur() > c2.getValeur()) {
 			return 1;
 		}
@@ -190,7 +192,7 @@ public class Bataille {
 	 * Faux sinon
 	 */
 	private boolean estTerm() {
-		return (j2.getNb_carte() != 0 && j1.getNb_carte() != 0);
+		return (j2.plusDeCarte() || j1.plusDeCarte());
 	}
 	
 	/**
