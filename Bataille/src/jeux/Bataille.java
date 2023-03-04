@@ -3,7 +3,6 @@
  */
 package jeux;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import Carte.CarteBridge;
@@ -14,7 +13,7 @@ import paquetDeCarte.jeuDeCarteBridge;
 /**
  *
  * @author guillaume
- *
+ * TODO Le systeme pour passer tout les coups au autre classe
  */
 /**
  * @author guillaume
@@ -22,17 +21,41 @@ import paquetDeCarte.jeuDeCarteBridge;
  */
 public class Bataille {
 
-	private static final jeuDeCarteBridge jeu = new jeuDeCarteBridge(32);
+	private static final int nbCarteJeu = 32;
 
 	public static void main(String[] args) {
-		Bataille bat = new Bataille("j1", "j2");
-		bat.jouerPartie();
-		System.out.println(bat.getVainqueur());
-		System.out.println(bat.getNbcoup());
+//		Bataille bat = new Bataille("j1", "j2");
+//		bat.nouvellePartie();
+//		bat.jouerPartie();
+//		System.out.println(bat.getVainqueur());
+//		System.out.println(bat.getNbcoup());
+		jouerPlusieurPartie(10000);
+	}
+
+	/**
+	 * Permet de jouer plusieur partie
+	 * 
+	 * @param nbpartie : le nombre de partie à jouer
+	 */
+	public static void jouerPlusieurPartie(int nbpartie) {
+		int totJ1 = 0, totJ2 = 0;
+		Bataille bat = new Bataille("1", "2");
+		for (int i = 0; i < nbpartie; i++) {
+			bat.nouvellePartie();
+			bat.jouerPartie();
+			if (bat.getVainqueur().getNomJoueur() == "1") {
+				totJ1++;
+			} else {
+				totJ2++;
+			}
+		}
+		System.out.println(totJ1);
+		System.out.println(totJ2);
+
 	}
 
 	private PaquetDeCarteBridge carteEnJeu; // la paquet de carte en jeu
-	private JoueurBridge vainqueur; // le vainqueur de la dernier partie 
+	private JoueurBridge vainqueur; // le vainqueur de la dernier partie
 	private JoueurBridge j1; // Joueur 1
 	private JoueurBridge j2; // Joueur 2
 	private int nbcoup;// le nb de coup
@@ -41,6 +64,7 @@ public class Bataille {
 
 	/**
 	 * Permet d'initier une table de Jeu pour la bataille
+	 * 
 	 * @param nomj1 le nom du joueur 1
 	 * @param nomj2 le nom du joueur 2
 	 */
@@ -90,15 +114,15 @@ public class Bataille {
 	}
 
 	/**
-	 * Parmet de initialiser le jeu pour une nouvelle partie
+	 * Permet de initialiser le jeu pour une nouvelle partie
 	 */
 	public void nouvellePartie() {
 		this.setCarteEnJeu(new PaquetDeCarteBridge());
-		this.setPioche(jeu);
+		this.setPioche(new jeuDeCarteBridge(nbCarteJeu));
 		setNbcoup(0);
-		this.j1.rammasser(pioche.distribuer(16));
-		this.j2.rammasser(pioche.distribuer(16));
-		//coupsMap = new HashMap<>();
+		this.j1.setPioche(pioche.distribuer(16));
+		this.j2.setPioche(pioche.distribuer(16));
+		// coupsMap = new HashMap<>();
 	}
 
 	private void coupBataille() {
@@ -106,22 +130,19 @@ public class Bataille {
 		if (r == 0) {
 			if (j1.plusDeCarte()) {
 				r = 1;
-			}
-			else if (j2.plusDeCarte()) {
+			} else if (j2.plusDeCarte()) {
 				r = 2;
-				}
-			else {
+			} else {
 				egalite();
 			}
 		}
-		if ( r == 1) {
+		if (r == 1) {
 			j1.rammasser(carteEnJeu);
-		}
-		else if (r == 2) {
+		} else if (r == 2) {
 			j2.rammasser(carteEnJeu);
 		}
 	}
-	
+
 	/**
 	 * Permet de résoudre une égalité en faisant une "Bataille"
 	 */
@@ -129,33 +150,32 @@ public class Bataille {
 		tirerCarteJoueurs();
 		if (j1.plusDeCarte()) {
 			zeroCarteBataille(j1);
-		}
-		else if (j2.plusDeCarte()) {
+		} else if (j2.plusDeCarte()) {
 			zeroCarteBataille(j2);
-		}
-		else {
+		} else {
 			tirerCarteJoueurs();
 			coupBataille();
 		}
 	}
 
 	/*
-	 * Permet de résoudre le probleme quand un joueur n'as pas assez de carte pour faire la bataille
+	 * Permet de résoudre le probleme quand un joueur n'as pas assez de carte pour
+	 * faire la bataille
+	 * 
 	 * @param j : le joueur qui n'as plus de carte
 	 */
 	private void zeroCarteBataille(JoueurBridge j) {
-		int r  = gagnantCoup(); // r : gagnant du coup
-		if ( r == 1) {
+		int r = gagnantCoup(); // r : gagnant du coup
+		if (r == 1) {
 			j1.rammasser(carteEnJeu);
-		}
-		else if (r == 2) {
+		} else if (r == 2) {
 			j2.rammasser(carteEnJeu);
-		}
-		else {
+		} else {
 			j.rammasser(carteEnJeu);
 		}
-		
+
 	}
+
 	/**
 	 * Renvoie le gagnant du dernier coup <br>
 	 * 1 : J1 <br>
@@ -163,16 +183,14 @@ public class Bataille {
 	 * 0 : égalité
 	 */
 	private int gagnantCoup() {
-		CarteBridge c1,c2; // c1 = carte du j1, c2 carte du j2
-		c2 = carteEnJeu.getCarte(carteEnJeu.getNbcarte()-1);
-		c1 = carteEnJeu.getCarte(carteEnJeu.getNbcarte()-2);
+		CarteBridge c1, c2; // c1 = carte du j1, c2 carte du j2
+		c2 = carteEnJeu.getCarte(carteEnJeu.getNbcarte() - 1);
+		c1 = carteEnJeu.getCarte(carteEnJeu.getNbcarte() - 2);
 		if (c1.getValeur() > c2.getValeur()) {
 			return 1;
-		}
-		else if (c1.getValeur() < c2.getValeur()) {
+		} else if (c1.getValeur() < c2.getValeur()) {
 			return 2;
-		}
-		else {
+		} else {
 			return 0;
 		}
 	}
@@ -184,17 +202,16 @@ public class Bataille {
 		carteEnJeu.ajouterCarte(j1.tirerCarte());
 		carteEnJeu.ajouterCarte(j2.tirerCarte());
 	}
-	
+
 	/**
 	 * 
-	 * @return Vrai si la partie est terminée
-	 * <br>
-	 * Faux sinon
+	 * @return Vrai si la partie est terminée <br>
+	 *         Faux sinon
 	 */
 	private boolean estTerm() {
 		return (j2.plusDeCarte() || j1.plusDeCarte());
 	}
-	
+
 	/**
 	 * Permet d'incrementer le nb de coup
 	 */
@@ -202,14 +219,11 @@ public class Bataille {
 		this.nbcoup++;
 	}
 
-	
 	/****************************************/
-	/* 										 /
-	/* 				SETTERS                  /
-	/* 										 /
-	/****************************************/
-	
-	
+	/*
+	 * / /* SETTERS / /* / /
+	 ****************************************/
+
 	/**
 	 * @param carteEnJeu the carteEnJeu to set
 	 */

@@ -23,7 +23,7 @@ public class jeuDeCarteBridge extends PaquetDeCarteBridge {
 		super(creerJeu(32));
 	}
 	
-
+	
 	public static ArrayList<CarteBridge> creerJeu() {
 		return creerJeu(54);
 	}
