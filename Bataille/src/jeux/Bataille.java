@@ -10,27 +10,14 @@ import joueur.JoueurBridge;
 import paquetDeCarte.PaquetDeCarteBridge;
 import paquetDeCarte.jeuDeCarteBridge;
 
-/**
- *
- * @author guillaume
- * TODO Le systeme pour passer tout les coups au autre classe
- */
+
 /**
  * @author guillaume
- *
+ * Cette classe permet de simuler le jeu de la bataille
  */
 public class Bataille {
 
 	private static final int nbCarteJeu = 32;
-
-	public static void main(String[] args) {
-//		Bataille bat = new Bataille("j1", "j2");
-//		bat.nouvellePartie();
-//		bat.jouerPartie();
-//		System.out.println(bat.getVainqueur());
-//		System.out.println(bat.getNbcoup());
-		jouerPlusieurPartie(10000);
-	}
 
 	/**
 	 * Permet de jouer plusieur partie
@@ -53,6 +40,15 @@ public class Bataille {
 		System.out.println(totJ2);
 
 	}
+	
+	public static void main(String[] args) {
+		Bataille bat = new Bataille("j1", "j2");
+		bat.nouvellePartie();
+		bat.jouerPartie();
+		System.out.println(bat.getVainqueur());
+		System.out.println(bat.getNbcoup());
+		System.out.println(bat.getCoupsMap());
+	}
 
 	private PaquetDeCarteBridge carteEnJeu; // la paquet de carte en jeu
 	private JoueurBridge vainqueur; // le vainqueur de la dernier partie
@@ -60,7 +56,7 @@ public class Bataille {
 	private JoueurBridge j2; // Joueur 2
 	private int nbcoup;// le nb de coup
 	private jeuDeCarteBridge pioche;// la pioche
-	private HashMap<Integer, PaquetDeCarteBridge> coupsMap;
+	private HashMap<Integer, PaquetDeCarteBridge> coupsMap; // une HashMap de tout les coups
 
 	/**
 	 * Permet d'initier une table de Jeu pour la bataille
@@ -76,14 +72,17 @@ public class Bataille {
 	}
 
 	/**
-	 * @return the coupsMap
+	 * @return coupsMap, la HashMap des coups de la partie <br>
+	 * La clef est le numero du coup (ex le 1 coup à une clef de 1) <br>
+	 * La valeur le paquet rammasser par le joueur qui à gagné ce coups <br>
+	 * les cartes à indice paire sont celle du J1, impraire celle du J2
 	 */
 	public HashMap<Integer, PaquetDeCarteBridge> getCoupsMap() {
 		return coupsMap;
 	}
 
 	/**
-	 * @return the nbcoup
+	 * @return le nbcoup de la partie
 	 */
 	public int getNbcoup() {
 		return nbcoup;
@@ -97,12 +96,14 @@ public class Bataille {
 	}
 
 	/**
-	 * demmarre la partie
+	 * Permet de jouer la partie <br>
+	 * Determine le vainqueur de la bataille
 	 */
 	public void jouerPartie() {
 		while (estTerm() == false) {
 			this.tirerCarteJoueurs();
 			this.incrementeCoup();
+			this.coupsMap.put(nbcoup, carteEnJeu);
 			this.coupBataille();
 			this.setCarteEnJeu(new PaquetDeCarteBridge());
 		}
@@ -114,17 +115,20 @@ public class Bataille {
 	}
 
 	/**
-	 * Permet de initialiser le jeu pour une nouvelle partie
+	 * Permet de (re)initialiser le jeu pour une nouvelle partie
 	 */
 	public void nouvellePartie() {
 		this.setCarteEnJeu(new PaquetDeCarteBridge());
 		this.setPioche(new jeuDeCarteBridge(nbCarteJeu));
-		setNbcoup(0);
+		nbcoup = 0;
 		this.j1.setPioche(pioche.distribuer(16));
 		this.j2.setPioche(pioche.distribuer(16));
-		// coupsMap = new HashMap<>();
+		coupsMap = new HashMap<>();
 	}
 
+	/**
+	 * Cette fonction permet de jouer un coup
+	 */
 	private void coupBataille() {
 		int r = gagnantCoup(); // r : gagnant du coup
 		if (r == 0) {
@@ -158,22 +162,13 @@ public class Bataille {
 		}
 	}
 
-	/*
-	 * Permet de résoudre le probleme quand un joueur n'as pas assez de carte pour
-	 * faire la bataille
+	/**
 	 * 
-	 * @param j : le joueur qui n'as plus de carte
+	 * @return Vrai si la partie est terminée <br>
+	 *         Faux sinon
 	 */
-	private void zeroCarteBataille(JoueurBridge j) {
-		int r = gagnantCoup(); // r : gagnant du coup
-		if (r == 1) {
-			j1.rammasser(carteEnJeu);
-		} else if (r == 2) {
-			j2.rammasser(carteEnJeu);
-		} else {
-			j.rammasser(carteEnJeu);
-		}
-
+	private boolean estTerm() {
+		return (j2.plusDeCarte() || j1.plusDeCarte());
 	}
 
 	/**
@@ -196,33 +191,11 @@ public class Bataille {
 	}
 
 	/**
-	 * Permet de tirer une carte à chaque joueur et de le mettre dans carteEnJeu
-	 */
-	private void tirerCarteJoueurs() {
-		carteEnJeu.ajouterCarte(j1.tirerCarte());
-		carteEnJeu.ajouterCarte(j2.tirerCarte());
-	}
-
-	/**
-	 * 
-	 * @return Vrai si la partie est terminée <br>
-	 *         Faux sinon
-	 */
-	private boolean estTerm() {
-		return (j2.plusDeCarte() || j1.plusDeCarte());
-	}
-
-	/**
 	 * Permet d'incrementer le nb de coup
 	 */
 	private void incrementeCoup() {
 		this.nbcoup++;
 	}
-
-	/****************************************/
-	/*
-	 * / /* SETTERS / /* / /
-	 ****************************************/
 
 	/**
 	 * @param carteEnJeu the carteEnJeu to set
@@ -238,18 +211,15 @@ public class Bataille {
 		this.j1 = j1;
 	}
 
+	/****************************************/
+	/* 				SETTERS
+	/****************************************/
+
 	/**
 	 * @param j2 the j2 to set
 	 */
 	private void setJ2(JoueurBridge j2) {
 		this.j2 = j2;
-	}
-
-	/**
-	 * @param nbcoup the nbcoup to set
-	 */
-	private void setNbcoup(int nbcoup) {
-		this.nbcoup = nbcoup;
 	}
 
 	/**
@@ -264,5 +234,31 @@ public class Bataille {
 	 */
 	private void setVainqueur(JoueurBridge vainqueur) {
 		this.vainqueur = vainqueur;
+	}
+
+	/**
+	 * Permet de tirer une carte à chaque joueur et de le mettre dans carteEnJeu
+	 */
+	private void tirerCarteJoueurs() {
+		carteEnJeu.ajouterCarte(j1.tirerCarte());
+		carteEnJeu.ajouterCarte(j2.tirerCarte());
+	}
+
+	/*
+	 * Permet de résoudre le probleme quand un joueur n'as pas assez de carte pour
+	 * faire la bataille
+	 * 
+	 * @param j : le joueur qui n'as plus de carte
+	 */
+	private void zeroCarteBataille(JoueurBridge j) {
+		int r = gagnantCoup(); // r : gagnant du coup
+		if (r == 1) {
+			j1.rammasser(carteEnJeu);
+		} else if (r == 2) {
+			j2.rammasser(carteEnJeu);
+		} else {
+			j.rammasser(carteEnJeu);
+		}
+
 	}
 }

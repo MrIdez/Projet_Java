@@ -3,6 +3,8 @@ package paquetDeCarte;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import Carte.Carte;
+
 /**
  *
  */
@@ -13,18 +15,15 @@ import java.util.Collections;
  * @author guillaume
  *
  */
-public abstract class PaquetDeCarte<C> {
+public abstract class PaquetDeCarte<C extends Carte> {
 
-	private int nbcarte;
 	protected ArrayList<C> paquet;
 
 	public PaquetDeCarte() {
-		this.setNbcarte(0);
 		this.paquet = new ArrayList<>();
 	}
 
 	public PaquetDeCarte(ArrayList<C> p) {
-		this.setNbcarte(p.size());
 		this.paquet = new ArrayList<>();
 		for (C carte : p) {
 			this.paquet.add(carte);
@@ -35,18 +34,26 @@ public abstract class PaquetDeCarte<C> {
 		System.out.println(this.toString());
 	}
 
+	/**
+	 * Permet d'ajouter une carte au paquet
+	 * @param c, la carte à ajouter
+	 */
 	public void ajouterCarte(C c) {
 		this.paquet.add(c);
-		this.nbcarte++;
 	}
 
+	/**
+	 * Permet de distribuer des cartes du paquet
+	 * @param nb le nombre de carte à distribuer
+	 * @return un paquet de carte contenant les cartes à distribuer
+	 */
 	public abstract PaquetDeCarte<C> distribuer(int nb);
 
 	/**
 	 * @return the nbcarte
 	 */
 	public int getNbcarte() {
-		return nbcarte;
+		return this.paquet.size();
 	}
 
 	/**
@@ -56,33 +63,37 @@ public abstract class PaquetDeCarte<C> {
 		return paquet;
 	}
 	
+	/**
+	 * Permet de mpelanger le paquet
+	 */
 	public void melanger() {
 		Collections.shuffle(paquet);
 	}
 
+	/**
+	 * Pemert de rammasser des cartes
+	 * @param paquet le paquet à ramasserr
+	 */
 	public void ramasser(ArrayList<C> paquet) {
 		this.paquet.addAll(paquet);
-		this.setNbcarte(this.paquet.size());
-	}
-
-	public void ramasser(PaquetDeCarte<C> paquet) {
-		this.paquet.addAll(paquet.getPaquet());
-		this.setNbcarte(this.paquet.size());
 	}
 
 	/**
-	 * @param nbcarte the nbcarte to set
+	 * Pemert de rammasser des cartes
+	 * @param paquet le paquet à ramasserr
 	 */
-	private void setNbcarte(int nbcarte) {
-		this.nbcarte = nbcarte;
+	public void ramasser(PaquetDeCarte<C> paquet) {
+		this.paquet.addAll(paquet.getPaquet());
 	}
-
+	/**
+	 * 
+	 * @return La carte tirée du paquet
+	 */
 	public C tirerCarte() {
 		C c = null;
-		if (this.nbcarte > 0) {
-			c = this.paquet.remove(nbcarte-1);
+		if (this.getNbcarte() > 0) {
+			c = this.paquet.remove(this.getNbcarte()-1);
 		}
-		this.nbcarte--;
 		return c;
 	}
 

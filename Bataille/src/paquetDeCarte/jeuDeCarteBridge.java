@@ -23,11 +23,19 @@ public class jeuDeCarteBridge extends PaquetDeCarteBridge {
 		super(creerJeu(32));
 	}
 	
-	
+	/**
+	 * Permet de créer un jeu de 54 Carte
+	 * @return Une Array list des 54 cartes du Bridge mélangée
+	 */
 	public static ArrayList<CarteBridge> creerJeu() {
 		return creerJeu(54);
 	}
 
+	/**
+	 * Permet de créer un jeu de x carte
+	 * @param nbcarte le nombre de carte à créer
+	 * @return Une Array list de x cartes du Bridge mélangée
+	 */
 	private static ArrayList<CarteBridge> creerJeu(int nbcarte) {
 		final int min ;
 		if (nbcarte == 32) {

@@ -21,8 +21,11 @@ public class JoueurBridge extends Joueur<CarteBridge> {
 		this.pioche = new PaquetDeCarteBridge();
 	}
 
+	/**
+	 * Permet de tirer une carte de la pioche du joueur
+	 * @return la carte tirée
+	 */
 	public CarteBridge tirerCarte() {
-		this.setNb_carte(this.getNb_carte()-1);
 		return this.pioche.tirerCarte();
 	}
 	
@@ -31,14 +34,12 @@ public class JoueurBridge extends Joueur<CarteBridge> {
 	public void rammasser(ArrayList<CarteBridge> paquet) {
 		Collections.shuffle(paquet);
 		this.pioche.ramasser(paquet);
-		this.setNb_carte(this.pioche.getNbcarte());
 	}
 
 	@Override
 	public void rammasser(PaquetDeCarte<CarteBridge> paquet) {
 		paquet.melanger();
 		this.pioche.ramasser(paquet);
-		this.setNb_carte(this.pioche.getNbcarte());
 	}
 
 }
