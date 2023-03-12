@@ -2,7 +2,7 @@ package joueur;
 
 import java.util.ArrayList;
 
-import Carte.Carte;
+import carte.Carte;
 import paquetDeCarte.PaquetDeCarte;
 
 /**

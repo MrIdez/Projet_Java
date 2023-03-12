@@ -3,7 +3,7 @@ package paquetDeCarte;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import Carte.Carte;
+import carte.Carte;
 
 /**
  *

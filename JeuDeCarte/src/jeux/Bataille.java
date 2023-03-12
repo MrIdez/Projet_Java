@@ -5,7 +5,7 @@ package jeux;
 
 import java.util.HashMap;
 
-import Carte.CarteBridge;
+import carte.CarteBridge;
 import joueur.JoueurBridge;
 import paquetDeCarte.PaquetDeCarteBridge;
 import paquetDeCarte.jeuDeCarteBridge;

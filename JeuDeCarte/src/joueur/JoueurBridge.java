@@ -6,7 +6,7 @@ package joueur;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import Carte.CarteBridge;
+import carte.CarteBridge;
 import paquetDeCarte.PaquetDeCarte;
 import paquetDeCarte.PaquetDeCarteBridge;
 

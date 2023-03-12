@@ -5,7 +5,7 @@ package paquetDeCarte;
 
 import java.util.ArrayList;
 
-import Carte.CarteBridge;
+import carte.CarteBridge;
 
 /**
  * @author guillaume
