@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import carte.CarteBridge;
 
 /**
- * @author guillaume
- *
+ * @author Guillaume Baron
  */
 public class PaquetDeCarteBridge extends PaquetDeCarte<CarteBridge> {
 

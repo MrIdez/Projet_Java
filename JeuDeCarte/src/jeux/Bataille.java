@@ -1,6 +1,3 @@
-/**
- *
- */
 package jeux;
 
 import java.util.HashMap;
@@ -12,7 +9,7 @@ import paquetDeCarte.jeuDeCarteBridge;
 
 
 /**
- * @author guillaume
+ * @author Guillaume Baron
  * Cette classe permet de simuler le jeu de la bataille
  */
 public class Bataille {

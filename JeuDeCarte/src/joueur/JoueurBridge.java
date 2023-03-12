@@ -11,7 +11,8 @@ import paquetDeCarte.PaquetDeCarte;
 import paquetDeCarte.PaquetDeCarteBridge;
 
 /**
- * @author guillaume
+ * Classe qui caractirise un joueur de Bridge
+ * @author Guillaume Baron
  *
  */
 public class JoueurBridge extends Joueur<CarteBridge> {

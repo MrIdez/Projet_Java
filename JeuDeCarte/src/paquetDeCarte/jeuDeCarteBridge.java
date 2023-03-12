@@ -9,8 +9,8 @@ import java.util.Collections;
 import carte.CarteBridge;
 
 /**
- * @author guillaume
- *
+ * Classe qui caractérise un jeu de Bridge de 32 ou 54 cartes
+ * @author Guillaume Baron
  */
 public class jeuDeCarteBridge extends PaquetDeCarteBridge {	
 	private final static String[] couleur = {"Tréfle","Pique","Carreaux","Coeur"};

@@ -11,8 +11,8 @@ import carte.Carte;
 
 /**
  * 
- * Implemente un paquet de carte, la paquet est implenter sous forme de pile
- * @author guillaume
+ * Implemente un paquet de carte, la paquet est representé sous forme de pile
+ * @author Guillaume Baron
  *
  */
 public abstract class PaquetDeCarte<C extends Carte> {

@@ -4,7 +4,8 @@ package carte;
  */
 
 /**
- * @author guillaume
+ * Classe qui caratérise une Carte et defnie les Getters/Setters
+ * @author Guillaume Baron
  *
  */
 public abstract class Carte {

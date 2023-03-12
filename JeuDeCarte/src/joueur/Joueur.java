@@ -6,10 +6,6 @@ import carte.Carte;
 import paquetDeCarte.PaquetDeCarte;
 
 /**
- * Fichier pour la classe Joueur
- */
-
-/**
  * Classe abstraite d'un Joueur de carte C
  * Elle permet ensuite la definition d'un joueur d'un jeu particulier comme le bridge
  * 
