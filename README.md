@@ -1,7 +1,7 @@
 # Bienvenue :wave: 
 Ce dépôt contient mes divers projets personnel en Java
- - [JeuDeCarte](#jeudecarte), une reprise de mon anciens projet du même nom en Python et version améliorer de ce dernier avec les connaissance acquises entre-temps””
- - Puissance 4, un portage en java de ma SAE ”implémentation d'un besoin client” (pour l'instant encore à l'état de projet)
+ - [JeuDeCarte](#jeudecarte), une reprise de mon anciens projet du même nom [en Python](https://github.com/MrIdez/projet-python) et version améliorer de ce dernier avec les connaissance acquises entre-temps
+ - [Puissance 4](#puissance-4), un portage en java de ma [SAE](https://github.com/MrIdez/SAE) ”implémentation d'un besoin client” (pour l'instant encore à l'état de projet)
  - Plus de projet à l'avenir je l’espère
 
 — 
@@ -28,6 +28,8 @@ Seul la jeu de la Bataille a été implémenté pour l'instant
 Ce projet m'a permis de parfaire mes compétence en Java, j'ai pus mettre en pratique la notion de polymorphisme et d'héritage.
 
 J'ai d'ailleurs commis l'erreur lors de l'implémentation de ne pas faire de diagramme UML, cela m'a fait perdre du temps de réflexion et j'ai du plusieurs fois réadapté le code à mes nouvelles idée.
+
+—
 
 ## Puissance 4
 
