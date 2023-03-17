@@ -19,20 +19,6 @@ public class PaquetDeCarteBridge extends PaquetDeCarte<CarteBridge> {
 	public PaquetDeCarteBridge() {
 		super();
 	}
-
-	/**
-	 * 
-	 * @param index l'index de la carte
-	 * @return la carte à l'index dans le paquet sans la supprimer
-	 * @throws IndexOutOfBoundsException quand (index < 0 || index >= nbcarte )
-	 */
-	public CarteBridge getCarte(int index) throws IndexOutOfBoundsException {
-		if ((index < 0 || index >= this.getNbcarte())) {
-			throw new IndexOutOfBoundsException();
-		}
-		else return this.paquet.get(index);
-	}
-
 	@Override
 	public PaquetDeCarte<CarteBridge> distribuer(int nb) {
 		PaquetDeCarteBridge paq = new PaquetDeCarteBridge();

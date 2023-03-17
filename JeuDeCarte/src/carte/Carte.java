@@ -13,7 +13,14 @@ public abstract class Carte {
 	private String figure;
 	private String Couleur;
 	
-	public Carte(int val, String fig,String coul) {
+	/**
+	 * 
+	 * @param val La valeur de la carte à construire
+	 * @param fig la figure de la carte ex : Valet
+	 * @param coul la couleur de la carte ex : Coueur
+	 * @throws IllegalArgumentException si la valeur de la carte est negative
+	 */
+	public Carte(int val, String fig,String coul) throws IllegalArgumentException {
 		this.setCouleur(coul);
 		this.setFigure(fig);
 		this.setValeur(val);
@@ -46,8 +53,11 @@ public abstract class Carte {
 	/**
 	 * @param valeur the valeur to set
 	 */
-	private void setValeur(int valeur) {
-		this.valeur = valeur;
+	private void setValeur(int valeur) throws IllegalArgumentException {
+		if (valeur < 0 ) {
+			throw new IllegalArgumentException("La valeur ne peut pas être negative");
+		}
+		else this.valeur = valeur;
 	}
 	/**
 	 * @param figure the figure to set

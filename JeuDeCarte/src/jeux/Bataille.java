@@ -176,8 +176,8 @@ public class Bataille {
 	 */
 	private int gagnantCoup() {
 		CarteBridge c1, c2; // c1 = carte du j1, c2 carte du j2
-		c2 = carteEnJeu.getCarte(carteEnJeu.getNbcarte() - 1);
-		c1 = carteEnJeu.getCarte(carteEnJeu.getNbcarte() - 2);
+		c2 = carteEnJeu.getCarte(carteEnJeu.getNbCarte() - 1);
+		c1 = carteEnJeu.getCarte(carteEnJeu.getNbCarte() - 2);
 		if (c1.getValeur() > c2.getValeur()) {
 			return 1;
 		} else if (c1.getValeur() < c2.getValeur()) {

@@ -40,6 +40,15 @@ public abstract class Joueur<C extends Carte> {
 		this.pioche.ajouterCarte(carte);
 	}
 
+	public C getCarte(int index) throws IllegalArgumentException {
+		if (index < 0 || index > this.getNbCarte() ) {
+			throw  new IllegalArgumentException("L'index doit être compris entre 0 et nbCarte");
+		}
+		else {
+			return this.pioche.getCarte(index);
+		}
+	}
+	
 	/**
 	 * 
 	 * @return 
@@ -54,7 +63,7 @@ public abstract class Joueur<C extends Carte> {
 	 * @return Le nb_carte du Joueur
 	 */
 	public int getNbCarte() {
-		return this.pioche.getNbcarte();
+		return this.pioche.getNbCarte();
 	}
 
 	/**

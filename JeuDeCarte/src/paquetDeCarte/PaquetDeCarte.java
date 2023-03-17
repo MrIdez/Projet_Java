@@ -49,10 +49,18 @@ public abstract class PaquetDeCarte<C extends Carte> {
 	 */
 	public abstract PaquetDeCarte<C> distribuer(int nb);
 
+	public C getCarte(int index) throws IllegalArgumentException {
+		if (index < 0 || index > this.getNbCarte() ) {
+			throw  new IllegalArgumentException("L'index doit être compris entre 0 et nbCarte");
+		}
+		else {
+			return this.paquet.get(index);
+		}
+	}
 	/**
 	 * @return the nbcarte
 	 */
-	public int getNbcarte() {
+	public int getNbCarte() {
 		return this.paquet.size();
 	}
 
@@ -91,8 +99,8 @@ public abstract class PaquetDeCarte<C extends Carte> {
 	 */
 	public C tirerCarte() {
 		C c = null;
-		if (this.getNbcarte() > 0) {
-			c = this.paquet.remove(this.getNbcarte()-1);
+		if (this.getNbCarte() > 0) {
+			c = this.paquet.remove(this.getNbCarte()-1);
 		}
 		return c;
 	}
