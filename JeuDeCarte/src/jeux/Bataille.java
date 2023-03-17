@@ -5,7 +5,7 @@ import java.util.HashMap;
 import carte.CarteBridge;
 import joueur.JoueurBridge;
 import paquetDeCarte.PaquetDeCarteBridge;
-import paquetDeCarte.jeuDeCarteBridge;
+import paquetDeCarte.JeuDeCarteBridge;
 
 
 /**
@@ -52,7 +52,7 @@ public class Bataille {
 	private JoueurBridge j1; // Joueur 1
 	private JoueurBridge j2; // Joueur 2
 	private int nbcoup;// le nb de coup
-	private jeuDeCarteBridge pioche;// la pioche
+	private JeuDeCarteBridge pioche;// la pioche
 	private HashMap<Integer, PaquetDeCarteBridge> coupsMap; // une HashMap de tout les coups
 
 	/**
@@ -116,7 +116,7 @@ public class Bataille {
 	 */
 	public void nouvellePartie() {
 		this.setCarteEnJeu(new PaquetDeCarteBridge());
-		this.setPioche(new jeuDeCarteBridge(nbCarteJeu));
+		this.setPioche(new JeuDeCarteBridge(nbCarteJeu));
 		nbcoup = 0;
 		this.j1.setPioche(pioche.distribuer(16));
 		this.j2.setPioche(pioche.distribuer(16));
@@ -222,7 +222,7 @@ public class Bataille {
 	/**
 	 * @param pioche the pioche to set
 	 */
-	private void setPioche(jeuDeCarteBridge pioche) {
+	private void setPioche(JeuDeCarteBridge pioche) {
 		this.pioche = pioche;
 	}
 

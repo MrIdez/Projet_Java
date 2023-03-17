@@ -12,37 +12,33 @@ import carte.CarteBridge;
  * Classe qui caractérise un jeu de Bridge de 32 ou 54 cartes
  * @author Guillaume Baron
  */
-public class jeuDeCarteBridge extends PaquetDeCarteBridge {	
+public class JeuDeCarteBridge extends PaquetDeCarteBridge {	
 	private final static String[] couleur = {"Tréfle","Pique","Carreaux","Coeur"};
-	
-	public jeuDeCarteBridge() {
-		super(creerJeu());
-	}
-	
-	public jeuDeCarteBridge(int nbcarte) {
-		super(creerJeu(32));
-	}
-	
+		
 	/**
-	 * Permet de créer un jeu de 54 Carte
-	 * @return Une Array list des 54 cartes du Bridge mélangée
+	 * Créer un jeu de 32 ou 54 cartes
+	 * @param nbcarte le nombre de carte, doit être 32 ou 54.
 	 */
-	public static ArrayList<CarteBridge> creerJeu() {
-		return creerJeu(54);
+	public JeuDeCarteBridge(int nbcarte) {
+		super(creerJeu(nbcarte));
 	}
 
 	/**
-	 * Permet de créer un jeu de x carte
+	 * Permet de créer un jeu de 32 ou 54 cartes
 	 * @param nbcarte le nombre de carte à créer
-	 * @return Une Array list de x cartes du Bridge mélangée
+	 * @return Une Array list de 32 ou 54 cartes du Bridge mélangée
+	 * @throws IllegalArgumentException quand nbcarte != (32 || 54)
 	 */
-	private static ArrayList<CarteBridge> creerJeu(int nbcarte) {
+	private static ArrayList<CarteBridge> creerJeu(int nbcarte) throws IllegalArgumentException {
 		final int min ;
 		if (nbcarte == 32) {
 			min = 7;
 		}
-		else {
+		else if (nbcarte == 54){
 			min = 1;
+		}
+		else {
+			throw new IllegalArgumentException("Le nombre de carte doit être 32 ou 54");
 		}
 		ArrayList<CarteBridge> jeu = new ArrayList<CarteBridge>();
 		CarteBridge uneCarte;
