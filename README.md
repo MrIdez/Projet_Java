@@ -2,7 +2,7 @@
 Ce dépôt contient mes divers projets personnel en Java
  - [JeuDeCarte](#jeudecarte), une reprise de mon anciens projet du même nom [en Python](https://github.com/MrIdez/projet-python) et version améliorer de ce dernier avec les connaissance acquises entre-temps
  - [Puissance 4](#puissance-4), un portage en java de ma [SAE](https://github.com/MrIdez/SAE) ”implémentation d'un besoin client” (pour l'instant encore à l'état de projet)
- - Plus de projet à l'avenir je l’espère
+
 
 — 
 ## JeuDeCarte
@@ -17,7 +17,7 @@ Seul la jeu de la Bataille a été implémenté pour l'instant
 
 ### Roadmap
 
-   - Permettre de réellement jouer au Jeu
+   - Implementation d'une inteface graphique minimale avec JavaFX
 
    - Faire des Tests Unitaires
     
@@ -25,7 +25,7 @@ Seul la jeu de la Bataille a été implémenté pour l'instant
 
 ### Acquis
 
-Ce projet m'a permis de parfaire mes compétence en Java, j'ai pus mettre en pratique la notion de polymorphisme et d'héritage.
+Ce projet m'a permis d'améliorer mes compétences en Java, j'ai pu mettre en pratique la notion de polymorphisme et d'héritage.
 
 J'ai d'ailleurs commis l'erreur lors de l'implémentation de ne pas faire de diagramme UML, cela m'a fait perdre du temps de réflexion et j'ai du plusieurs fois réadapté le code à mes nouvelles idée.
 
@@ -35,8 +35,12 @@ J'ai d'ailleurs commis l'erreur lors de l'implémentation de ne pas faire de dia
 
 Ce projet à pour objectif de réaliser un puissance 4 jouable dans le terminal
 
+### Roadmap
+- Diagramme de classe
+- Implementation en Java
+- Tests unitaires
+- (Interface graphique en JavaFX)
 
-:building_construction:
 
 ## Auteur
 
