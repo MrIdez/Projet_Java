@@ -21,21 +21,46 @@ package carte;
  * 
  * @author Guillaume Baron
  */
-final public class CarteBridge extends Carte {
+final public class CarteDeutch extends Carte {
+	enum CarteSpecials {
+		ROI_ROUGE,
+		DAME,
+		VALET,
+		AS,
+		NORMAL
+	}
 	private static final String[] tabFig = {
-		"Joker","Deux","Trois","Quatre","Cinq","Six","Sept","Huit","Neuf","Dix","Valet","Dame","Roi","As"
+		"Joker","As","Deux","Trois","Quatre","Cinq","Six","Sept","Huit","Neuf","Dix","Valet","Dame","Roi"
 	};
+
+	private final CarteSpecials actionSpecial;
+
 	/**
 	 * Permet de construire une carte de Bridge
 	 * @param val la valeur de la carte ( >= 0)
 	 * @param coul la couleur de la carte ex : Pique
 	 * @throws ArrayIndexOutOfBoundsException quand val < 0
 	 */
-	public CarteBridge(int val, String coul) throws ArrayIndexOutOfBoundsException {
+	public CarteDeutch(int val, String coul) throws ArrayIndexOutOfBoundsException {
 		super(val, tabFig[val], coul);
+		if(val==13 && coul.equals("Rouge")) {
+			this.actionSpecial = CarteSpecials.ROI_ROUGE;
+		}
+		else if (val == 12) {
+			this.actionSpecial = CarteSpecials.DAME;
+		}
+		else if (val == 11) {
+			this.actionSpecial = CarteSpecials.VALET;
+		}
+		else if (val == 1) {
+			this.actionSpecial = CarteSpecials.AS;
+		}
+		else {
+			this.actionSpecial = CarteSpecials.NORMAL;
+		}
 	}
 
-	public static String[] getTabFig() {
-		return tabFig;
+	public CarteSpecials getActionSpecial() {
+		return actionSpecial;
 	}
 }

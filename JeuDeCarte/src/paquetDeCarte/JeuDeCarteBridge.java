@@ -59,7 +59,7 @@ public class JeuDeCarteBridge extends PaquetDeCarteBridge {
 		ArrayList<CarteBridge> jeu = new ArrayList<CarteBridge>();
 		CarteBridge uneCarte;
 		for (String coul : couleur) {
-			for (int i = min; i < 15; i++) {
+			for (int i = min; i < CarteBridge.getTabFig().length; i++) {
 				uneCarte = new CarteBridge(i, coul);
 				jeu.add(uneCarte);
 			}
