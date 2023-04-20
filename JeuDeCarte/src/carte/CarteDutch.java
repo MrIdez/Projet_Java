@@ -18,49 +18,55 @@ package carte;
 
 /**
  * Classe pour une carte du Deutch
- * 
+ *
  * @author Guillaume Baron
  */
 final public class CarteDutch extends Carte {
-	enum CarteSpecials {
-		ROI_ROUGE,
-		DAME,
-		VALET,
-		AS,
-		NORMAL
-	}
-	private static final String[] tabFig = {
-		"Joker","As","Deux","Trois","Quatre","Cinq","Six","Sept","Huit","Neuf","Dix","Valet","Dame","Roi"
-	};
+    private static final String[] couleur = {"Pique,Trèfles", "Coeur", "Carreaux"};
+    private static final String[] tabFig = {
+            "Joker", "As", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept", "Huit", "Neuf", "Dix", "Valet", "Dame", "Roi"
+    };
+    private final CarteSpecials actionSpecial;
 
-	private final CarteSpecials actionSpecial;
+    /**
+     * Permet de construire une carte de Bridge
+     *
+     * @param val  la valeur de la carte ( >= 0)
+     * @param coul la couleur de la carte ex : Pique
+     * @throws ArrayIndexOutOfBoundsException quand val < 0
+     */
+    public CarteDutch(int val, String coul) throws ArrayIndexOutOfBoundsException {
+        super(val, tabFig[val], coul);
+        if (val == 13 && coul.equals("Rouge")) {
+            this.actionSpecial = CarteSpecials.ROI_ROUGE;
+        } else if (val == 12) {
+            this.actionSpecial = CarteSpecials.DAME;
+        } else if (val == 11) {
+            this.actionSpecial = CarteSpecials.VALET;
+        } else if (val == 1) {
+            this.actionSpecial = CarteSpecials.AS;
+        } else {
+            this.actionSpecial = CarteSpecials.NORMAL;
+        }
+    }
 
-	/**
-	 * Permet de construire une carte de Bridge
-	 * @param val la valeur de la carte ( >= 0)
-	 * @param coul la couleur de la carte ex : Pique
-	 * @throws ArrayIndexOutOfBoundsException quand val < 0
-	 */
-	public CarteDutch(int val, String coul) throws ArrayIndexOutOfBoundsException {
-		super(val, tabFig[val], coul);
-		if(val==13 && coul.equals("Rouge")) {
-			this.actionSpecial = CarteSpecials.ROI_ROUGE;
-		}
-		else if (val == 12) {
-			this.actionSpecial = CarteSpecials.DAME;
-		}
-		else if (val == 11) {
-			this.actionSpecial = CarteSpecials.VALET;
-		}
-		else if (val == 1) {
-			this.actionSpecial = CarteSpecials.AS;
-		}
-		else {
-			this.actionSpecial = CarteSpecials.NORMAL;
-		}
-	}
+    public static String[] getCouleurPossible() {
+        return couleur;
+    }
 
-	public CarteSpecials getActionSpecial() {
-		return actionSpecial;
-	}
+    public static String[] getTabFig() {
+        return tabFig;
+    }
+
+    public CarteSpecials getActionSpecial() {
+        return actionSpecial;
+    }
+
+    private enum CarteSpecials {
+        ROI_ROUGE,
+        DAME,
+        VALET,
+        AS,
+        NORMAL
+    }
 }
