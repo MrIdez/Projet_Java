@@ -17,11 +17,11 @@
 package carte;
 
 /**
- * Classe pour une carte du Bridge
+ * Classe pour une carte du Deutch
  * 
  * @author Guillaume Baron
  */
-final public class CarteDeutch extends Carte {
+final public class CarteDutch extends Carte {
 	enum CarteSpecials {
 		ROI_ROUGE,
 		DAME,
@@ -41,7 +41,7 @@ final public class CarteDeutch extends Carte {
 	 * @param coul la couleur de la carte ex : Pique
 	 * @throws ArrayIndexOutOfBoundsException quand val < 0
 	 */
-	public CarteDeutch(int val, String coul) throws ArrayIndexOutOfBoundsException {
+	public CarteDutch(int val, String coul) throws ArrayIndexOutOfBoundsException {
 		super(val, tabFig[val], coul);
 		if(val==13 && coul.equals("Rouge")) {
 			this.actionSpecial = CarteSpecials.ROI_ROUGE;
