@@ -6,3 +6,16 @@ bin
 bin
 .settings
 /.metadata/
+
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+*.iml
+*.idea
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.iws
+*.ipr
