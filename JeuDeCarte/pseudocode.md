@@ -87,13 +87,15 @@ def égalité(JA,JB,jeu) :
 ```
 
 # liste des méthodes :
+
 * Nouvelle partie
 * Jeu
 * tirerCarteJoueur
 * égalité
 * coupBataille
 * meilleurCarte -> revoit la meilleur carte jouer entre les deux dernière dans carteEnJeu
-* Une méthode pour ça aussi : 
+* Une méthode pour ça aussi :
+
 ```python 
 if cA2.GetValeur()>cB2.GetValeur() :
 				JA.Ramasser(jeu)
@@ -104,6 +106,7 @@ if cA2.GetValeur()>cB2.GetValeur() :
 ``` 
 
 # liste des variables :
+
 * Joueur1
 * Joueur2
 * (jouerQuiaGagné) pour que ce soit plus rp
@@ -112,6 +115,7 @@ if cA2.GetValeur()>cB2.GetValeur() :
 * jeu static et constatante -> le jeu
 
 # Methode de classe
+
 * Jouer x partie
 * Aide
 * Les regles

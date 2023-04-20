@@ -5,7 +5,7 @@ import paquetDeCarte.PaquetDeCarte;
 
 import java.util.ArrayList;
 
-public class JoueurDutch extends Joueur<CarteDutch>{
+public class JoueurDutch extends Joueur<CarteDutch> {
 
     public JoueurDutch(String nomJ) {
         super(nomJ);
