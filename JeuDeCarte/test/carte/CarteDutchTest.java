@@ -17,61 +17,63 @@
 
 package carte;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarteDutchTest {
-    private CarteDutch carteTest;
+    private static CarteDutch carteTest;
 
-    @org.junit.jupiter.api.BeforeEach
-    void creerCarte() {
+    @BeforeAll
+    static void creerCarte() {
         carteTest = new CarteDutch(1, CarteDutch.getCouleurPossible()[0]);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getCouleurPossible() {
         assertArrayEquals(new String[]{"Pique", "Trèfles", "Coeur", "Carreaux"}, CarteDutch.getCouleurPossible());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getTabFig() {
         assertArrayEquals(new String[]{
                 "Joker", "As", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept", "Huit", "Neuf", "Dix", "Valet", "Dame", "Roi"
         }, CarteDutch.getTabFig());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getActionSpecialRoiNoir() {
         CarteDutch roiNoir = new CarteDutch(13, "Pique");
         assertNotEquals(CarteSpecials.ROI_ROUGE, roiNoir.getActionSpecial());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getActionSpecialRoiRouge() {
         CarteDutch roiRouge = new CarteDutch(13, CarteDutch.getCouleurPossible()[2]);
         assertEquals(CarteSpecials.ROI_ROUGE, roiRouge.getActionSpecial());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getActionSpecialDame() {
         CarteDutch Dame = new CarteDutch(12, CarteDutch.getCouleurPossible()[0]);
         assertEquals(CarteSpecials.DAME, Dame.getActionSpecial());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getActionSpecialValet() {
         CarteDutch valet = new CarteDutch(11, CarteDutch.getCouleurPossible()[0]);
         assertEquals(CarteSpecials.VALET, valet.getActionSpecial());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getActionSpecialAs() {
         CarteDutch as = new CarteDutch(1, CarteDutch.getCouleurPossible()[0]);
         assertEquals(CarteSpecials.AS, as.getActionSpecial());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getActionSpecialNormal() {
-        CarteDutch normal = new CarteDutch(9, CarteDutch.getCouleurPossible()[0]);
-        assertEquals(CarteSpecials.NORMAL, normal.getActionSpecial());
+        assertEquals(CarteSpecials.NORMAL, carteTest.getActionSpecial());
     }
 }
