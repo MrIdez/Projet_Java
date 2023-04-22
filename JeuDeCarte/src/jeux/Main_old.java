@@ -27,12 +27,15 @@ import java.util.Scanner;
  *
  * @author guillaume
  */
+
+/*
 public final class Main {
     private final static String[] LISTE_JEUX = {"Bataille"};
 
     /**
      * @param args
      */
+    /*
     public static void main(String[] args) {
         int i = 1;
         String reponse;
@@ -51,3 +54,4 @@ public final class Main {
     }
 
 }
+*/
