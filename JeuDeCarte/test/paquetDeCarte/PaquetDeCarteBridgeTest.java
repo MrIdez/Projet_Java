@@ -20,7 +20,6 @@ package paquetDeCarte;
 import carte.CarteBridge;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.TestWatcher;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -32,7 +31,7 @@ class PaquetDeCarteBridgeTest {
     @BeforeAll
     static void setUp() {
         paq = new PaquetDeCarteBridge();
-        c = new CarteBridge(1,"Pique");
+        c = new CarteBridge(1, "Pique");
         paq.paquet = (PaquetDeCarteBridge.jeuDeCarteBridge(32).distribuer(16)).getPaquet();
     }
 
@@ -40,8 +39,8 @@ class PaquetDeCarteBridgeTest {
     void ajouterCarte() {
         int nbcarteAvant = paq.getNbCarte();
         paq.ajouterCarte(c);
-        assertEquals(nbcarteAvant+1,paq.getNbCarte());
-        assertEquals(c,paq.getCarte(nbcarteAvant));
+        assertEquals(nbcarteAvant + 1, paq.getNbCarte());
+        assertEquals(c, paq.getCarte(nbcarteAvant));
     }
 
     @Test
@@ -50,23 +49,23 @@ class PaquetDeCarteBridgeTest {
         // Test debut
         assertEquals(paq.getCarte(0), paq.getPaquet().get(0));
         // Test milieu
-        assertEquals(paq.getCarte(nbcarte/2), paq.getPaquet().get(nbcarte/2));
+        assertEquals(paq.getCarte(nbcarte / 2), paq.getPaquet().get(nbcarte / 2));
         // Test fin
-        assertEquals(paq.getCarte(nbcarte-1), paq.getPaquet().get(nbcarte-1));
+        assertEquals(paq.getCarte(nbcarte - 1), paq.getPaquet().get(nbcarte - 1));
     }
 
     @Test
     void tirerCarte() {
         int nbcarte = paq.getNbCarte();
-        CarteBridge c = paq.getCarte(paq.getNbCarte()-1);
+        CarteBridge c = paq.getCarte(paq.getNbCarte() - 1);
         CarteBridge c2 = paq.tirerCarte();
-        assertEquals(c,c2);
-        assertEquals(nbcarte-1,paq.getNbCarte());
+        assertEquals(c, c2);
+        assertEquals(nbcarte - 1, paq.getNbCarte());
     }
 
     @Test
     void distribuer() {
         PaquetDeCarteBridge p2 = paq.distribuer(10);
-        assertEquals(10,p2.getNbCarte());
+        assertEquals(10, p2.getNbCarte());
     }
 }

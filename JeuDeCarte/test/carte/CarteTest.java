@@ -18,31 +18,31 @@
 package carte;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CarteTest {
     private static CarteBridge carteTest;
+
     @BeforeAll
     static void creerCarte() {
-        carteTest = new CarteBridge(0,"Pique");
+        carteTest = new CarteBridge(0, "Pique");
     }
 
     @Test
     void getValeur() {
-        assertEquals(0,carteTest.getValeur());
+        assertEquals(0, carteTest.getValeur());
     }
 
     @Test
     void getFigure() {
-        assertEquals(CarteBridge.getTabFig()[0],carteTest.getFigure());
+        assertEquals(CarteBridge.getTabFig()[0], carteTest.getFigure());
     }
 
     @Test
     void getCouleur() {
-        assertEquals("Pique",carteTest.getCouleur());
+        assertEquals("Pique", carteTest.getCouleur());
     }
 
 }

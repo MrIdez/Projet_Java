@@ -33,6 +33,7 @@ public class PaquetDeCarteDutch extends PaquetDeCarte<CarteDutch> {
     public static PaquetDeCarteDutch jeuDeCarteDutch() {
         return new PaquetDeCarteDutch(CreerJeu.creerJeuDutch());
     }
+
     @Override
     public PaquetDeCarteDutch distribuer(int nb) {
         PaquetDeCarteDutch paq = new PaquetDeCarteDutch();

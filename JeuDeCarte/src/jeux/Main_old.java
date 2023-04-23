@@ -20,8 +20,6 @@
  */
 package jeux;
 
-import java.util.Scanner;
-
 /**
  * Classe contenant le programme principal
  *

@@ -27,18 +27,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class JoueurTest {
     private static JoueurBridge j;
     private static CarteBridge c;
+
     @BeforeAll
     static void creerJ() {
         j = new JoueurBridge("A");
-        c = new CarteBridge(1,"Pique");
+        c = new CarteBridge(1, "Pique");
         j.setPioche(PaquetDeCarteBridge.jeuDeCarteBridge(32).distribuer(16));
     }
+
     @Test
     void ajouterCarte() {
         int nbcarteAvant = j.getNbCarte();
         j.ajouterCarte(c);
-        assertEquals(nbcarteAvant+1,j.getNbCarte());
-        assertEquals(c,j.getCarte(nbcarteAvant));
+        assertEquals(nbcarteAvant + 1, j.getNbCarte());
+        assertEquals(c, j.getCarte(nbcarteAvant));
     }
 
     @Test
@@ -47,9 +49,9 @@ class JoueurTest {
         // Test debut
         assertEquals(j.getCarte(0), j.getPioche().getCarte(0));
         // Test milieu
-        assertEquals(j.getCarte(nbcarte/2), j.getPioche().getCarte(nbcarte/2));
+        assertEquals(j.getCarte(nbcarte / 2), j.getPioche().getCarte(nbcarte / 2));
         // Test fin
-        assertEquals(j.getCarte(nbcarte-1), j.getPioche().getCarte(nbcarte-1));
+        assertEquals(j.getCarte(nbcarte - 1), j.getPioche().getCarte(nbcarte - 1));
     }
 
     @Test

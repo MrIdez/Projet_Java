@@ -105,7 +105,7 @@ public abstract class PaquetDeCarte<C extends Carte> {
      *
      * @param paquet le paquet à ramasserr
      */
-    public void ramasser(PaquetDeCarte<C> paquet ) {
+    public void ramasser(PaquetDeCarte<C> paquet) {
         this.paquet.addAll(paquet.getPaquet());
     }
 

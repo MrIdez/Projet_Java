@@ -35,7 +35,7 @@ final public class CarteDutch extends CarteBridge {
     public CarteDutch(int val, String coul) throws ArrayIndexOutOfBoundsException {
         super(val, coul);
         boolean rouge = (coul.equals(getCouleurPossible()[2]) || coul.equals(getCouleurPossible()[3]));
-        if ((val == 13 ) && rouge ) {
+        if ((val == 13) && rouge) {
             this.actionSpecial = CarteSpecials.ROI_ROUGE;
         } else if (val == 12) {
             this.actionSpecial = CarteSpecials.DAME;

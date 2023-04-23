@@ -16,10 +16,11 @@
  */
 
 package carte;
+
 public enum CarteSpecials {
-        ROI_ROUGE,
-        DAME,
-        VALET,
-        AS,
-        NORMAL
-    }
+    ROI_ROUGE,
+    DAME,
+    VALET,
+    AS,
+    NORMAL
+}

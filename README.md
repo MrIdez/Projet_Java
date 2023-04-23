@@ -14,36 +14,45 @@
  * You should have received a copy of the GNU General Public License along with JeuDeCarte. 
  * If not, see <https://www.gnu.org/licenses/>.
  *******************************************************************************-->
-# Bienvenue :wave: 
+
+# Bienvenue :wave:
+
 Ce dépôt contient mes divers projets personnels en Java
- - [JeuDeCarte](#jeudecarte), une reprise de mon ancien projet du même nom [en Python](https://github.com/MrIdez/projet-python) et version améliorer de ce dernier avec les connaissances acquises entre-temps
- - [Puissance 4](#puissance-4), un portage en java de ma [SAE](https://github.com/MrIdez/SAE) ”implémentation d'un besoin client” (pour l'instant encore à l'état de projet)
 
+- [JeuDeCarte](#jeudecarte), une reprise de mon ancien projet du même
+  nom [en Python](https://github.com/MrIdez/projet-python) et version améliorer de ce dernier avec les connaissances
+  acquises entre-temps
+- [Puissance 4](#puissance-4), un portage en java de ma [SAE](https://github.com/MrIdez/SAE) ”implémentation d'un besoin
+  client” (pour l'instant encore à l'état de projet)
 
-— 
+—
+
 ## JeuDeCarte
 
-Ce projet à pour but de permettre de Jouer à des jeux de Cartes dans un terminal
+Ce projet à pour but de permettre de Jouer à des jeux de Cartes dans une interface graphique simple
 
 Seul la jeu de la Bataille a été implémenté pour l'instant
 
 ### Jeux jouables
-   - La Bataille
-   - Plus de jeux à venir
+
+- La Bataille
+- Plus de jeux à venir
 
 ### Roadmap
 
-   - Implémentation d'une interface graphique minimale avec JavaFX
+- Faire des Tests Unitaires avec JUnit [ 20 %]
 
-   - Faire des Tests Unitaires
-    
-   - Rajouter des jeux 
+- Rajouter des jeux
+
+- Implémentation d'une interface graphique minimale avec JavaFX
 
 ### Acquis
 
-Ce projet m'a permis d'améliorer mes compétences en Java, j'ai pu mettre en pratique la notion de polymorphisme et d'héritage.
+Ce projet m'a permis d'améliorer mes compétences en Java, j'ai pu mettre en pratique la notion de polymorphisme et d'
+héritage.
 
-J'ai d'ailleurs commis l'erreur lors de l'implémentation de ne pas faire de diagramme UML, cela m'a fait perdre du temps de réflexion et j'ai du plusieurs fois réadapté le code à mes nouvelles idées.
+J'ai d'ailleurs commis l'erreur lors de l'implémentation de ne pas faire de diagramme UML, cela m'a fait perdre du temps
+de réflexion et j'ai du plusieurs fois réadapté le code à mes nouvelles idées.
 
 —
 
@@ -52,12 +61,13 @@ J'ai d'ailleurs commis l'erreur lors de l'implémentation de ne pas faire de dia
 Ce projet à pour objectif de réaliser un puissance 4 jouable dans le terminal
 
 ### Roadmap
+
 - Diagramme de classe
 - Implémentation en Java
 - Tests unitaires
 - (Interface graphique en JavaFX)
 
-## Licence 
+## Licence
 
 Ce projet est sous licence Gnu GPLv3 voir le fichier [COPYING](COPYING) pour plus de détails
 
