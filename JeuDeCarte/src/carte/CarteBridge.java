@@ -21,7 +21,7 @@ package carte;
  *
  * @author Guillaume Baron
  */
-final public class CarteBridge extends Carte {
+public class CarteBridge extends Carte {
     private static final String[] couleur = {"Pique,Trèfles", "Coeur", "Carreaux"};
     private static final String[] tabFig = {
             "Joker", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept", "Huit", "Neuf", "Dix", "Valet", "Dame", "Roi", "As"

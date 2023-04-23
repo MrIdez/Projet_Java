@@ -18,15 +18,11 @@ package carte;
 
 
 /**
- * Classe pour une carte du Deutch
+ * Classe pour une carte du Dutch
  *
  * @author Guillaume Baron
  */
-final public class CarteDutch extends Carte {
-    private static final String[] couleur = {"Pique","Trèfles", "Coeur", "Carreaux"};
-    private static final String[] tabFig = {
-            "Joker", "As", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept", "Huit", "Neuf", "Dix", "Valet", "Dame", "Roi"
-    };
+final public class CarteDutch extends CarteBridge {
     private final CarteSpecials actionSpecial;
 
     /**
@@ -37,8 +33,8 @@ final public class CarteDutch extends Carte {
      * @throws ArrayIndexOutOfBoundsException quand val < 0
      */
     public CarteDutch(int val, String coul) throws ArrayIndexOutOfBoundsException {
-        super(val, tabFig[val], coul);
-        boolean rouge = (coul.equals(couleur[2]) || coul.equals(couleur[3]));
+        super(val, coul);
+        boolean rouge = (coul.equals(getCouleurPossible()[2]) || coul.equals(getCouleurPossible()[3]));
         if ((val == 13 ) && rouge ) {
             this.actionSpecial = CarteSpecials.ROI_ROUGE;
         } else if (val == 12) {
@@ -50,14 +46,6 @@ final public class CarteDutch extends Carte {
         } else {
             this.actionSpecial = CarteSpecials.NORMAL;
         }
-    }
-
-    public static String[] getCouleurPossible() {
-        return couleur;
-    }
-
-    public static String[] getTabFig() {
-        return tabFig;
     }
 
     public CarteSpecials getActionSpecial() {
