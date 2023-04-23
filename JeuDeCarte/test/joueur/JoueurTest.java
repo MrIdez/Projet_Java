@@ -20,7 +20,7 @@ package joueur;
 import carte.CarteBridge;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import paquetDeCarte.JeuDeCarteBridge;
+import paquetDeCarte.PaquetDeCarteBridge;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,7 +31,7 @@ class JoueurTest {
     static void creerJ() {
         j = new JoueurBridge("A");
         c = new CarteBridge(1,"Pique");
-        j.setPioche(new JeuDeCarteBridge(32).distribuer(16));
+        j.setPioche(PaquetDeCarteBridge.jeuDeCarteBridge(32).distribuer(16));
     }
     @Test
     void ajouterCarte() {

@@ -33,6 +33,10 @@ public class PaquetDeCarteBridge extends PaquetDeCarte<CarteBridge> {
         super();
     }
 
+    public static PaquetDeCarteBridge jeuDeCarteBridge (int nbcarte) {
+        return new PaquetDeCarteBridge(CreerJeu.creerJeuBridge(nbcarte));
+    }
+
     @Override
     public PaquetDeCarteBridge distribuer(int nb) {
         PaquetDeCarteBridge paq = new PaquetDeCarteBridge();

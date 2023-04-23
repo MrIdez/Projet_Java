@@ -33,7 +33,7 @@ class PaquetDeCarteBridgeTest {
     static void setUp() {
         paq = new PaquetDeCarteBridge();
         c = new CarteBridge(1,"Pique");
-        paq.paquet = (new JeuDeCarteBridge(32).distribuer(16)).getPaquet();
+        paq.paquet = (PaquetDeCarteBridge.jeuDeCarteBridge(32).distribuer(16)).getPaquet();
     }
 
     @Test

@@ -17,21 +17,38 @@
 
 package paquetDeCarte;
 
+import carte.CarteBridge;
 import carte.CarteDutch;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public final class JeuDeCarteDutch extends PaquetDeCarteDutch {
-
-    public JeuDeCarteDutch() {
-        super(creerJeu());
+public class CreerJeu {
+    public static ArrayList<CarteBridge> creerJeuBridge(int nbcarte) throws IllegalArgumentException {
+        final int min;
+        if (nbcarte == 32) {
+            min = 7;
+        } else if (nbcarte == 54) {
+            min = 1;
+        } else {
+            throw new IllegalArgumentException("Le nombre de carte doit être 32 ou 54");
+        }
+        ArrayList<CarteBridge> jeu = new ArrayList<>();
+        CarteBridge uneCarte;
+        for (String coul : CarteBridge.getCouleurPossible()) {
+            for (int i = min; i < CarteBridge.getTabFig().length; i++) {
+                uneCarte = new CarteBridge(i, coul);
+                jeu.add(uneCarte);
+            }
+        }
+        Collections.shuffle(jeu);
+        return jeu;
     }
 
-    private static ArrayList<CarteDutch> creerJeu() {
+    public static ArrayList<CarteDutch> creerJeuDutch() {
         ArrayList<CarteDutch> jeu = new ArrayList<>();
         CarteDutch uneCarte;
-        for (String coul : CarteDutch.getCouleurPossible()) {
+        for (String coul : CarteBridge.getCouleurPossible()) {
             for (int i = 1; i < CarteDutch.getTabFig().length; i++) {
                 uneCarte = new CarteDutch(i, coul);
                 jeu.add(uneCarte);
