@@ -43,7 +43,7 @@ public final class JeuDeCarteBridge extends PaquetDeCarteBridge {
     /**
      * Permet de créer un jeu de 32 ou 54 cartes
      *
-     * @param nbcarte le nombre de carte à créer
+     * @param nbcarte le nombre de cartes à créer
      * @return Une Array list de 32 ou 54 cartes du Bridge mélangée
      * @throws IllegalArgumentException quand nbcarte != (32 || 54)
      */

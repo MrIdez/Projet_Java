@@ -22,11 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- *
- */
-
-/**
- * Implemente un paquet de carte, la paquet est representé sous forme de pile
+ * Implémente un paquet de carte, le paquet est représenté sous forme de pile
  *
  * @author Guillaume Baron
  */
@@ -109,7 +105,7 @@ public abstract class PaquetDeCarte<C extends Carte> {
      *
      * @param paquet le paquet à ramasserr
      */
-    public void ramasser(PaquetDeCarte<C> paquet) {
+    public void ramasser(PaquetDeCarte<C> paquet ) {
         this.paquet.addAll(paquet.getPaquet());
     }
 

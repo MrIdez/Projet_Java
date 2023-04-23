@@ -34,7 +34,7 @@ public class PaquetDeCarteBridge extends PaquetDeCarte<CarteBridge> {
     }
 
     @Override
-    public PaquetDeCarte<CarteBridge> distribuer(int nb) {
+    public PaquetDeCarteBridge distribuer(int nb) {
         PaquetDeCarteBridge paq = new PaquetDeCarteBridge();
         for (int i = 0; i < nb; i++) {
             paq.ajouterCarte(this.tirerCarte());

@@ -31,7 +31,7 @@ public class PaquetDeCarteDutch extends PaquetDeCarte<CarteDutch> {
     }
 
     @Override
-    public PaquetDeCarte<CarteDutch> distribuer(int nb) {
+    public PaquetDeCarteDutch distribuer(int nb) {
         PaquetDeCarteDutch paq = new PaquetDeCarteDutch();
         for (int i = 0; i < nb; i++) {
             paq.ajouterCarte(this.tirerCarte());

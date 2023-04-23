@@ -49,8 +49,7 @@ class JoueurTest {
         // Test milieu
         assertEquals(j.getCarte(nbcarte/2), j.getPioche().getCarte(nbcarte/2));
         // Test fin
-        // Test debut
-        assertEquals(j.getCarte(nbcarte), j.getPioche().getCarte(nbcarte));
+        assertEquals(j.getCarte(nbcarte-1), j.getPioche().getCarte(nbcarte-1));
     }
 
     @Test
