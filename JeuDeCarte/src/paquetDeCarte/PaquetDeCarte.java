@@ -67,7 +67,7 @@ public abstract class PaquetDeCarte<C extends Carte> {
     public abstract PaquetDeCarte<C> distribuer(int nb);
 
     public C getCarte(int index) throws IllegalArgumentException {
-        if (index < 0 || index > this.getNbCarte()) {
+        if (index < 0 || index >= this.getNbCarte()) {
             throw new IllegalArgumentException("L'index doit être compris entre 0 et nbCarte");
         } else {
             return this.paquet.get(index);
