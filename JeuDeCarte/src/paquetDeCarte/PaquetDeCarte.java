@@ -20,6 +20,7 @@ import carte.Carte;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 /**
  * Implémente un paquet de carte, le paquet est représenté sous forme de pile
@@ -127,5 +128,18 @@ public abstract class PaquetDeCarte<C extends Carte> {
             str = str.concat(carte.toString() + "\n");
         }
         return str;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PaquetDeCarte<?> that = (PaquetDeCarte<?>) o;
+        return Objects.equals(getPaquet(), that.getPaquet());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPaquet());
     }
 }

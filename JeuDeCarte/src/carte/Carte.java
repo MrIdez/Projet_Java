@@ -19,6 +19,8 @@ package carte;
  *
  */
 
+import java.util.Objects;
+
 /**
  * Classe qui caratérise une Carte et defnie les Getters/Setters
  *
@@ -94,6 +96,18 @@ public abstract class Carte {
         return (this.getFigure() + " de " + this.getCouleur());
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Carte carte = (Carte) o;
+        return getValeur() == carte.getValeur() && Objects.equals(getCouleur(), carte.getCouleur());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getValeur(), getCouleur());
+    }
 }
 
 

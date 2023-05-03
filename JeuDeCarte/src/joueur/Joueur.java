@@ -20,6 +20,7 @@ import carte.Carte;
 import paquetDeCarte.PaquetDeCarte;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Classe abstraite d'un Joueur de carte C
@@ -141,5 +142,18 @@ public abstract class Joueur<C extends Carte> {
             }
         }
         return str;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Joueur<?> joueur = (Joueur<?>) o;
+        return Objects.equals(getPioche(), joueur.getPioche()) && Objects.equals(getNomJoueur(), joueur.getNomJoueur());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPioche(), getNomJoueur());
     }
 }
