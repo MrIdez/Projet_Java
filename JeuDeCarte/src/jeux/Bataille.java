@@ -118,7 +118,7 @@ public class Bataille {
      * Determine le vainqueur de la bataille
      */
     public void jouerPartie() {
-        while (estTerm() == false) {
+        while (!estTerm()) {
             this.tirerCarteJoueurs();
             this.incrementeCoup();
             this.coupsMap.put(nbcoup, carteEnJeu);

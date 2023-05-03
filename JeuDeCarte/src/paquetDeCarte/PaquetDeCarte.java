@@ -43,7 +43,7 @@ public abstract class PaquetDeCarte<C extends Carte> {
     }
 
     public void afficher() {
-        System.out.println(this.toString());
+        System.out.println(this);
     }
 
     /**

@@ -44,7 +44,7 @@ public abstract class Carte {
     }
 
     public void afficher() {
-        System.out.println(this.toString());
+        System.out.println(this);
     }
 
     /**
